@@ -40,15 +40,18 @@
         }
         function decimalPointCalculate(value, decimalPoint){
             if(decimalPoint === 'ceil'){
-                return value.ceil()
+                value =  value.ceil()
                 // return value.floor()
             }
             if(decimalPoint === 'floor'){
-                return value.floor()
+                value = value.floor()
             }
             if(decimalPoint === 'round'){
-                return new bigDecimal(Math.round(value.getValue()))
+                value = new bigDecimal(Math.round(value.getValue()))
                 // return value.floor()
+            }
+            if(value.value === '-0'){
+                value = new bigDecimal(0)
             }
             return value
         }
